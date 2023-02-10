@@ -12,13 +12,11 @@ static inline uint64_t rdtsc() {
 int main() { 
     char* ptr = malloc(4192);
     uint64_t start = rdtsc(); 
-    // code to be timed
     ptr[0] = 0x8;
-    // ************ 
     uint64_t end = rdtsc(); 
     uint64_t elapsed = end - start; 
     // Convert to microseconds
     int microseconds = elapsed * 1000000 / (float)CLOCKS_PER_SEC;
-    printf("%d seconds\n", CLOCKS_PER_SEC, microseconds);
+    printf("%d microseconds\n", microseconds);
     return 0; 
 } 
