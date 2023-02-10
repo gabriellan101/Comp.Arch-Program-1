@@ -1,3 +1,4 @@
+// gcc -Wall -W -O0 -std=c11 -o prog1 prog1.c
 #include <stdio.h> 
 #include <stdint.h>
 #include <stdlib.h>
