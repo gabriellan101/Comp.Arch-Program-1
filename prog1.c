@@ -2,7 +2,10 @@
 #include <stdio.h> 
 #include <stdint.h>
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
+
+#define NUM_TIMES 10000
+#define MICROSECS_PER_SECOND 1000000
  
 static inline uint64_t rdtsc() { 
     unsigned int eax, edx; 
@@ -11,7 +14,8 @@ static inline uint64_t rdtsc() {
 }
 
 int main() { 
-    for (int i = 0; i < 10000; i++)
+    int* arr = malloc(NUM_TIMES * sizeof(int));
+    for (int i = 0; i < NUM_TIMES; i++)
     {
         char* ptr = malloc(4192);
         uint64_t start = rdtsc(); 
@@ -19,8 +23,9 @@ int main() {
         uint64_t end = rdtsc(); 
         uint64_t elapsed = end - start; 
         // Convert to microseconds
-        int microseconds = elapsed * 1000000 / (float)CLOCKS_PER_SEC;
-        printf("%d microseconds\n", microseconds);
+        int microseconds = elapsed * MICROSECS_PER_SECOND / (float)CLOCKS_PER_SEC;
+        arr[i] = microseconds;
     }
+    // add statistics calculation here
     return 0;
 } 
