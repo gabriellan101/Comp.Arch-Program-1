@@ -27,5 +27,15 @@ int main() {
         arr[i] = microseconds;
     }
     // add statistics calculation here
+
+    //need to report:
+    // 1. maximum
+
+    int max;
+    // 2. minimum 
+    // 3. average 
+    // 4. std dev across 10,000 soft page faults 
+
+
     return 0;
 } 
