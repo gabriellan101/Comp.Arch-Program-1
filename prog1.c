@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #define NUM_TIMES 10000
 #define MICROSECS_PER_SECOND 1000000
@@ -30,12 +31,43 @@ int main() {
 
     //need to report:
     // 1. maximum
-
-    int max;
+    //array of ints is the set of 10,000
+    //for loop probs for max and min and average 
+    //int max;
     // 2. minimum 
     // 3. average 
     // 4. std dev across 10,000 soft page faults 
 
+    for (int i = 0; i < NUM_TIMES; i++){
+        float sum = 0.0;
+        float min = 0.0;
+        float max = 0.0;
+        float avg = 0.0;
+        float stddev = 0.0;
+
+        sum += arr[i];
+
+        if(min >= arr[i]){
+            min = arr[i];
+        }
+
+        if(max <= arr[i]){
+            max = arr[i];
+        }
+
+        avg = sum / NUM_TIMES;
+
+        for(i = 0; i < NUM_TIMES; i++){
+
+            stddev += pow(arr[i] - avg, 2);
+
+        }
+
+        stddev = sqrt(stddev / NUM_TIMES);
+
+
+
+    }
 
     return 0;
 } 
