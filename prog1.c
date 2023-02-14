@@ -62,6 +62,8 @@ int main() {
             stddev += pow(arr[i] - avg, 2);
 
         }
+        //not sure about this 
+        //still need to add print statements 
 
         stddev = sqrt(stddev / NUM_TIMES);
 
