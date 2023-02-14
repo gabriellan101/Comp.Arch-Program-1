@@ -55,8 +55,7 @@ int main() {
         end = rdtsc(); 
         elapsed = end - start;
         // Convert to microseconds and store in array
-        float microseconds = (double)elapsed * MICROSECS_PER_SECOND / get_clock_rate(get_cpu_id());
-        arr[i] = microseconds;
+        arr[i] = (double)elapsed * MICROSECS_PER_SECOND / get_clock_rate(get_cpu_id());
     }
     // Calculate statistics (max, min, avg, stddev)
     double sum;
